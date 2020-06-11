@@ -6,19 +6,19 @@
 <div>
     <form (submit)="updateAgency(agencia,distrito,provincia,departamento,direccion,latitud,longitud)">
         <label>Nombre de Agencia</label>
-        <input type="text" #agencia>
+        <input type="text" value="{{agencyDetail.agencia}}" disabled #agencia>
         <label>Distrito</label>
-        <input type="text" #distrito>
+        <input type="text" value="{{agencyDetail.distrito}}" #distrito>
         <label>Provincia</label>
-        <input type="text" #provincia>
+        <input type="text" value="{{agencyDetail.provincia}}" #provincia>
         <label>Departamento</label>
-        <input type="text" #departamento>
+        <input type="text" value="{{agencyDetail.departamento}}" #departamento>
         <label>Dirección</label>
-        <input type="text" #direccion>
+        <input type="text" value="{{agencyDetail.direccion}}" #direccion>
         <label>Latitud</label>
-        <input type="text" #latitud>
+        <input type="text" value="{{agencyDetail.lat}}" #latitud>
         <label>Longitud</label>
-        <input type="text" #longitud>
-        <button>Guardar</button>
+        <input type="text" value="{{agencyDetail.lon}}" #longitud>
+        <button type="submit">Guardar</button>
     </form>
 </div>

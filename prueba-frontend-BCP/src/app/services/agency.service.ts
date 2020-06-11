@@ -25,6 +25,16 @@ export class AgencyService {
         ]
     }
 
+    getAgency( id: string ) {
+
+        for(let i = 0; i<this.agencies.length; i++) {
+            if (id == this.agencies[i].agencia) {
+                return this.agencies[i];
+            }
+        }
+
+    }
+
 
     getAgencies() {
 
@@ -43,10 +53,21 @@ export class AgencyService {
     updateAgency(agency: Agency) {
 
         for(let i = 0; i<this.agencies.length; i++) {
-            if (agency == this.agencies[i]) {
-                console.log("Agencia encontrada!");
+            if (agency.agencia == this.agencies[i].agencia) {
+                this.agencies[i] = {
+                    agencia : agency.agencia,
+                    distrito: agency.distrito,
+                    provincia: agency.provincia,
+                    departamento: agency.departamento,
+                    direccion: agency.direccion,
+                    lat: agency.lat,
+                    lon: agency.lon,
+                }
             }
+            break
         }
+
+        localStorage.setItem('agencies',JSON.stringify(this.agencies));
 
     }
 }
