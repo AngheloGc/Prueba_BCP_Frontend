@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Agency } from '../agencies/agency';
 import { AgencyService } from '../services/agency.service'
 
@@ -12,7 +12,7 @@ export class AgencyDetailComponent implements OnInit {
 
   agencyDetail: Agency;
 
-  constructor(private activatedRoute: ActivatedRoute, public agencyService: AgencyService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, public agencyService: AgencyService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -21,7 +21,6 @@ export class AgencyDetailComponent implements OnInit {
     })
   }
 
-
   updateAgency(agencia,distrito,provincia,departamento,direccion,latitud,longitud) {
     let agency : Agency = {
       agencia: agencia.value,
@@ -29,12 +28,31 @@ export class AgencyDetailComponent implements OnInit {
       provincia: provincia.value,
       departamento: departamento.value,
       direccion: direccion.value,
-      lat: parseInt(latitud.value),
-      lon: parseInt(longitud.value)
+      lat: parseFloat(latitud.value),
+      lon: parseFloat(longitud.value)
 
     }
 
-    this.agencyService.updateAgency(agency);
+    let noErrors = true;
+
+    try {
+
+      this.agencyService.updateAgency(agency);
+
+      
+    } catch (error) {
+
+      noErrors = false;
+
+      console.log(error);
+      
+    }
+
+    if(noErrors) {
+      this.router.navigateByUrl('/success');
+    } else {
+      this.router.navigateByUrl('/failed');
+    }
 
     return false;
   }

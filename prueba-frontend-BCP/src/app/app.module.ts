@@ -11,6 +11,12 @@ import { MapComponent } from './map/map.component';
 import { AgencyDetailComponent } from './agency-detail/agency-detail.component';
 
 import { AgencyService } from './services/agency.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+import { ToastrModule } from 'ngx-toastr';
+import { SuccessComponent } from './success/success.component';
+import { FailedComponent } from './failed/failed.component';
+
 
 @NgModule({
   declarations: [
@@ -19,12 +25,16 @@ import { AgencyService } from './services/agency.service';
     AgenciesComponent,
     AgencyComponent,
     MapComponent,
-    AgencyDetailComponent
+    AgencyDetailComponent,
+    SuccessComponent,
+    FailedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     AgencyService

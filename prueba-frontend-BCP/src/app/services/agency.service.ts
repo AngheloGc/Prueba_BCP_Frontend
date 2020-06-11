@@ -64,7 +64,6 @@ export class AgencyService {
                     lon: agency.lon,
                 }
             }
-            break
         }
 
         localStorage.setItem('agencies',JSON.stringify(this.agencies));
