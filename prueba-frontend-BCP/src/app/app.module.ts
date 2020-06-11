@@ -10,6 +10,8 @@ import { AgencyComponent } from './agency/agency.component';
 import { MapComponent } from './map/map.component';
 import { AgencyDetailComponent } from './agency-detail/agency-detail.component';
 
+import { AgencyService } from './services/agency.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { AgencyDetailComponent } from './agency-detail/agency-detail.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AgencyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

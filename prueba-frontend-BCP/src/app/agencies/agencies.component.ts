@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Agency } from '../agencies/agency';
 import { AGENCIES } from '../DataAgencies/data-agencias';
+import { AgencyService } from '../services/agency.service';
 
 @Component({
   selector: 'bcp-agencies',
@@ -10,11 +11,17 @@ import { AGENCIES } from '../DataAgencies/data-agencias';
 export class AgenciesComponent implements OnInit {
 
   agencies = AGENCIES;
+  agencyList: Agency[];
   selectedAgency: Agency;
 
-  constructor() {}
+  constructor(public agencyService: AgencyService) {
+    
+  }
 
   ngOnInit(): void {
+
+    this.agencyList = this.agencyService.getAgencies();
+
   }
 
   onSelect(agency: Agency): void{
