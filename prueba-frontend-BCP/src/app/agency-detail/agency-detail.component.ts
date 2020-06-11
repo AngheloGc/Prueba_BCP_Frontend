@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'bcp-agency-detail',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgencyDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params => {
+      const id = params.get("id")
+      console.log(id);
+    })
+  }
+
+  updateAgency(agencia,distrito,provincia,departamento,direccion,latitud,longitud) {
+    console.log("Actualizando",agencia,distrito,provincia,departamento,direccion,latitud,longitud)
+    return false;
   }
 
 }

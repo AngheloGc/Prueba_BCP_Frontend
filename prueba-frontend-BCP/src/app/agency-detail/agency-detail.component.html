@@ -1,1 +1,24 @@
-<p>agency-detail works!</p>
+<div class="agencies-detail-header">
+    <h2>Actualizar datos</h2>
+    
+</div>
+
+<div>
+    <form (submit)="updateAgency(agencia,distrito,provincia,departamento,direccion,latitud,longitud)">
+        <label>Nombre de Agencia</label>
+        <input type="text" #agencia>
+        <label>Distrito</label>
+        <input type="text" #distrito>
+        <label>Provincia</label>
+        <input type="text" #provincia>
+        <label>Departamento</label>
+        <input type="text" #departamento>
+        <label>Dirección</label>
+        <input type="text" #direccion>
+        <label>Latitud</label>
+        <input type="text" #latitud>
+        <label>Longitud</label>
+        <input type="text" #longitud>
+        <button>Guardar</button>
+    </form>
+</div>
